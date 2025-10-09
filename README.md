@@ -17,3 +17,6 @@ public class Hpprint impleements Printer {
 Ioc 將 object 存放在Sping 容器裡面，DI則是讓我們去得得存放在容器的那個object
 Bean 存放在Spring 容器裡的object
 @Autowird 加在變數上，取得Spring 容器中的bean
+
+2-2
+@Qulifier("bean name"):用於當spring 管理的容器都使用同一個interface時，Autowired會不知道要用哪一個bean，所以要特別指定bean的名稱
