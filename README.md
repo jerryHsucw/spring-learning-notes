@@ -9,8 +9,6 @@ Ioc 控制反轉 優點:
 @Compoent
 public class Hpprint impleements Printer {
 }
-
-
 依賴注入 DI Denpendency Injection
 現在有一個print是bean，當teacher需要用print時，也需要將teacher設定@Compent，這兩者是透過spring管理，這兩者的行為便叫做依賴注入
 
@@ -20,3 +18,7 @@ Bean 存放在Spring 容器裡的object
 
 2-2
 @Qulifier("bean name"):用於當spring 管理的容器都使用同一個interface時，Autowired會不知道要用哪一個bean，所以要特別指定bean的名稱
+若有同時使用 例如impleement Printer,但是未用Qulifier,run則會出現以下錯誤訊息
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+Ensure that your compiler is configured to use the '-parameters' flag.
+You may need to update both your build tool settings as well as your IDE.
