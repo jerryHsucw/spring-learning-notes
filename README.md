@@ -22,3 +22,12 @@ Bean 存放在Spring 容器裡的object
 Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
 Ensure that your compiler is configured to use the '-parameters' flag.
 You may need to update both your build tool settings as well as your IDE.
+
+2-3
+@configuration / @Compponent :
+spring boot 啟動中 會去檢查class 是否有這兩種@，若是沒有則會忽略這個class。
+@configuration 將class設定為Spring用的class
+@Compponent 將class設定為Spring管理的容器的bean
+@Bean 只能家在帶有@configuration class的方法上，用途為在spring容器中創建一個bean
+//@Qualifier("hpPrinter") //測試有多個xxprinter 去實作 Printer，所以透過指定Bean的名稱，讓Spring知道是哪一個Bean
+@Qualifier("myPrinter") //這是測試當Brother沒有加上@Component時，仍可以透過MyConfigurtaion產生的@Bean直接使用BrotherPrinter
