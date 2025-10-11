@@ -51,3 +51,9 @@ public class FujiPrinter implements Printer {
         System.out.println("This is Fuji count"+count);
     }
 }
+
+2-6 
+1.Bean的生命週期:創建→初始化→可以使用
+2.創建Bean時，若遇到有依賴其他bean時，則會回頭去進行創建+初始化那個被依賴的bean
+3.不要寫出依賴循環的bean，例如 Bean A autowird Bean B， Bean B autowird Bean A，這樣創建時會互相等待，導致尋換等待。
+4.Spring boot全部的Bean建立好才會完成啟動。
