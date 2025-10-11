@@ -4,7 +4,7 @@ Ioc 控制反轉 優點:
 2.生命週期由Spring管理
 3.方便測試
 
-2-1
+2-1 / 2-2
 @Component: 宣告於class上，代表該物件由spring管理，並且稱呼這種object為bean，Spring 容器名稱為 Bean hpPeinter
 @Compoent
 public class Hpprint impleements Printer {
@@ -16,14 +16,14 @@ Ioc 將 object 存放在Sping 容器裡面，DI則是讓我們去得得存放在
 Bean 存放在Spring 容器裡的object
 @Autowird 加在變數上，取得Spring 容器中的bean
 
-2-2
+2-3
 @Qulifier("bean name"):用於當spring 管理的容器都使用同一個interface時，Autowired會不知道要用哪一個bean，所以要特別指定bean的名稱
 若有同時使用 例如impleement Printer,但是未用Qulifier,run則會出現以下錯誤訊息
 Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
 Ensure that your compiler is configured to use the '-parameters' flag.
 You may need to update both your build tool settings as well as your IDE.
 
-2-3
+2-4
 @configuration / @Compponent :
 spring boot 啟動中 會去檢查class 是否有這兩種@，若是沒有則會忽略這個class。
 @configuration 將class設定為Spring用的class
@@ -31,3 +31,23 @@ spring boot 啟動中 會去檢查class 是否有這兩種@，若是沒有則會
 @Bean 只能家在帶有@configuration class的方法上，用途為在spring容器中創建一個bean
 //@Qualifier("hpPrinter") //測試有多個xxprinter 去實作 Printer，所以透過指定Bean的名稱，讓Spring知道是哪一個Bean
 @Qualifier("myPrinter") //這是測試當Brother沒有加上@Component時，仍可以透過MyConfigurtaion產生的@Bean直接使用BrotherPrinter
+
+2-5
+@PostConstruct / InitializingBean (interface)
+用於初始化Bean，例如要給xxPrinter 初始化並設定count
+PostConstruct 是在@Compponent創建一個init方法，並初始化
+InitializingBean 是bean實作這個interface，並實作afterProperties()，用於初始化count
+@Component
+public class FujiPrinter implements Printer {
+    private int count;
+    @PostConstruct
+    private void init(){
+        count= 5;
+    }
+    @Override
+    public void print(String message) {
+        count--;
+        System.out.println("This is Fuji:"+message);
+        System.out.println("This is Fuji count"+count);
+    }
+}
