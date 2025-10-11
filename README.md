@@ -57,3 +57,18 @@ public class FujiPrinter implements Printer {
 2.創建Bean時，若遇到有依賴其他bean時，則會回頭去進行創建+初始化那個被依賴的bean
 3.不要寫出依賴循環的bean，例如 Bean A autowird Bean B， Bean B autowird Bean A，這樣創建時會互相等待，導致尋換等待。
 4.Spring boot全部的Bean建立好才會完成啟動。
+
+2-7
+Spring boot 分成main 與 test ， main 下分成 java(code) 與 resource。
+Resource內的appliaction.properties 就是 spring的設定檔。
+設定檔的語法：
+kep=value ex.count=5
+#xxx 作為properties的註解
+
+以下是用來設定抓取properties的參數，@Value("${xxx}")
+@Value("${printer.name}")
+private String printerName;
+如果properties沒有XXXX這個key，可以透過預設值給值
+@Value("${XXXX:Default Printer}") 
+
+appliaction.properties or appliaction.yml 這兩種都是設定檔，但是其中語法不同。
