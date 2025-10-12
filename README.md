@@ -72,3 +72,20 @@ private String printerName;
 @Value("${XXXX:Default Printer}") 
 
 appliaction.properties or appliaction.yml 這兩種都是設定檔，但是其中語法不同。
+
+3-1 AOP 切面導向程式設計 : 讓某些重複執功能，由切面程式統一執行，例如:要執行的紀錄某些功能的開始執行時間與結束執行時間。
+3-2 
+@Aspect: 要同時加上@Component一起使用
+@Beforce :要指定pointcut(切入點):指的是某一個方法之前要執行該有這個@的方法
+@After:要指定pointcut(切入點):指的是某一個方法之後要執行該有這個@的方法
+@Around:再切入點的方法前後都會執行
+
+Pointcut路徑說明:
+ @Around("execution(* com.test.demo.HpPrinter.*(..))") :切入點為com.test.deom package裡的HpPinter class 的所有方法
+ @Around("execution(* com.test.demo.*(..))") :切入點為com.test.deom package裡的class 的所有方法
+ 
+spring Aop的發展:
+權限驗證 → Spring Security 處理
+統一的exception處理 → @ControllerAdvice 處理
+log紀錄
+要看公司的使用方式，有需要再來查即可。
