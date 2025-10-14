@@ -94,6 +94,27 @@ log紀錄
 負責規定資料的傳輸格式，讓前端與後端能夠有效地進行資料溝通。
 可以分成request and response兩部分
 
+5-3 JDBC連線資料庫設定
+因為不是用IntelliJ內建的資料連線，所以這邊作法調整為
+1.先安裝docker 與 設定 mysql連線
+2.安裝dbevar
+3.prom.xml設定
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-jdbc</artifactId>
+</dependency>
+<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.22</version>
+</dependency>
+5.appliaction.properties設定連線資訊
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3307/springboot_db?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Taipei&characterEncoding=utf-8
+spring.datasource.username=xx
+spring.datasource.password=xx
+
 8-1 Maven library管理
 1.管理spring boot project 可以使用那些功能、透過prom.xml設定
 2.<dependency> 放入自己要的libary </dependency>
@@ -137,6 +158,7 @@ local 端 打包jar的設定
 <version>0.0.1-SNAPSHOT</version>
 -SNAPSHOT(不穩定版本):可以無限次上傳到remote倉庫 (jar的檔名會含有-SNAPSHOT)
 -RELEASE(穩定版本):只能上傳一次 且 不能覆蓋(jar的檔名不會有-SNAPSHOT)、改成<version>0.0.1</version>，這樣生成就是沒有snashot的jar檔
+
 
 
 
