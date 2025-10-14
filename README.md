@@ -159,6 +159,18 @@ local 端 打包jar的設定
 -SNAPSHOT(不穩定版本):可以無限次上傳到remote倉庫 (jar的檔名會含有-SNAPSHOT)
 -RELEASE(穩定版本):只能上傳一次 且 不能覆蓋(jar的檔名不會有-SNAPSHOT)、改成<version>0.0.1</version>，這樣生成就是沒有snashot的jar檔
 
+10-8 Thymeleaf
+springboot 的一種前端模板引擎
+spring-boot-starter-thymeleaf
+透過
+1. return "index" >> 代表spring 去 /resource/template/index 找到html檔案
+@Controller
+public class ThymeleafController {
+    @GetMapping("/home")
+    public String home(){
+        return "index";
+    }
+}
 
 
 
