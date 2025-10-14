@@ -74,7 +74,7 @@ private String printerName;
 appliaction.properties or appliaction.yml 這兩種都是設定檔，但是其中語法不同。
 
 3-1 AOP 切面導向程式設計 : 讓某些重複執功能，由切面程式統一執行，例如:要執行的紀錄某些功能的開始執行時間與結束執行時間。
-3-2 
+3-2 AOP 相關@說明
 @Aspect: 要同時加上@Component一起使用
 @Beforce :要指定pointcut(切入點):指的是某一個方法之前要執行該有這個@的方法
 @After:要指定pointcut(切入點):指的是某一個方法之後要執行該有這個@的方法
@@ -89,3 +89,55 @@ spring Aop的發展:
 統一的exception處理 → @ControllerAdvice 處理
 log紀錄
 要看公司的使用方式，有需要再來查即可。
+
+4-2 http協議:
+負責規定資料的傳輸格式，讓前端與後端能夠有效地進行資料溝通。
+可以分成request and response兩部分
+
+8-1 Maven library管理
+1.管理spring boot project 可以使用那些功能、透過prom.xml設定
+2.<dependency> 放入自己要的libary </dependency>
+3.可以到https://mvnrepository.com/artifact/mysql/mysql-connector-java 查詢自己要的library
+4.group id 如果是spring boot starter 不可指定version的值，而是統一由<groupId>org.springframework.boot</groupId>決定
+groupId:公司名稱
+artifactId:功能的名字
+version 為該功能的版本
+scope 若為 test，只能在單元測試內使用
+exclusions 設定在裡面的libray不需加載
+ex.
+<dependency>
+    <groupId>org.springframework.boot</groupId> 
+    <artifactId>spring-boot-starter-aop</artifactId>
+</dependency>
+5. Maven Repository 
+儲存sping boot project 用到的libaray
+儲放位置分成 local or remote，先找loacl是否有該jar檔，如果沒有就去remote找。
+Jar 預設路徑為 ~/.m2/resposity內:C:\Users\user\.m2\repository，若是沒有這個intelj會自動用預設的倉庫，若需要自己新增remote位置可以自己創該檔案。
+
+8-2 Maven Project管理
+用途:打包Spring boot project的程式
+常用指令：
+Maven 指令分成3條生命週期(life cycle)，每一條生命週期比齒不互相干擾，在同一條生命周期，後面的指令會執行前面的所有指令. ex 當執行package指令:實際上會先執行complier > test > package
+1.clean生命週期:clean 刪除target資料夾/ target資料室spring 運行後的結果(常用)
+2.default生命週期:
+complier 編譯spring boot程式
+test 運行單元測試
+package 打包成,jar存放在target資料夾內(常用)
+install 將jar存放到local倉庫
+deploy 將.jar檔上傳到remote倉庫
+
+package後的jar檔會產生於此＂C:\Users\user\IdeaProjects\demo_hahow_reviiew_1_4\demo\target＂，這邊可以測試執行。
+將demo-0.0.1-SNAPSHOT.jar放到指定路徑
+然後cmd到指定路徑輸入:C:\Users\user\Desktop>java -jar demo-0.0.1-SNAPSHOT.jar
+即可執行該jar檔
+
+local 端 打包jar的設定
+<groupId>com.test</groupId>
+<artifactId>demo</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+-SNAPSHOT(不穩定版本):可以無限次上傳到remote倉庫 (jar的檔名會含有-SNAPSHOT)
+-RELEASE(穩定版本):只能上傳一次 且 不能覆蓋(jar的檔名不會有-SNAPSHOT)、改成<version>0.0.1</version>，這樣生成就是沒有snashot的jar檔
+
+
+
+
