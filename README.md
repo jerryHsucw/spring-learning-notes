@@ -162,15 +162,9 @@ local 端 打包jar的設定
 10-8 Thymeleaf
 springboot 的一種前端模板引擎
 spring-boot-starter-thymeleaf
-透過
-1. return "index" >> 代表spring 去 /resource/template/index 找到html檔案
-@Controller
-public class ThymeleafController {
-    @GetMapping("/home")
-    public String home(){
-        return "index";
-    }
-}
+增加了一個thymeleaf demo
+
+
 
 
 
