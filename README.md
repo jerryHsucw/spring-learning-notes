@@ -182,5 +182,14 @@ spring-boot-starter-thymeleaf
   可能導致物件在未完全初始化前就被使用（需要注意初始化順序）。
   程式碼較多（多個 setter 會明顯增加樣板），且不如 constructor 注入在閱讀上能立刻看出必需的依賴。
 
+8-10 springboot 2 > 3的差異
+1. jdk 只能用17
+2. java ee 遷移到 jakata ee，也就是javax.* 轉移到 jakata.*
+3. 持續優化GraalVM的技術，例如改善jar打包的容量
+
+
+
+
+
 
 
