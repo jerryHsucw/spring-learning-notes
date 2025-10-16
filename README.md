@@ -185,7 +185,23 @@ Ioc 控制反轉 優點:
     2. java ee 遷移到 jakata ee，也就是javax.* 轉移到 jakata.*
     3. 持續優化GraalVM的技術，例如改善jar打包的容量
     
+9-1 9-2 : intellij 的 debug用法
 
+9-3 intellij 實用技巧
+    1. 萬用鍵 alt + enter
+    2. ctrl + 左鍵 跳到指定的方法 / 點選I符號可以跳到interface
+    3. 全局搜尋：windows > ctrl+shift+F
+    4. 延伸2. 搭配ctrl + alt + 鍵盤的← →，跳回上一層方法
+    5. 下面選的endpoint功能，會呈現該url mapping，點選會直接回到Mapping的class
+    6. class 檔案按滑鼠右鍵，選擇split right 可以呈現左右視窗
+    7. ctrl + alt + o 可以清除該Class未使用的import
+    8. ctrl + alt + l 可以美化排版
+    9. 連按兩下shift 打開一個搜尋視窗，可以選擇要查詢class or file or 其他
+    10. ctrl + e 查詢曾經開啟過的檔案
+    11. 滑鼠右鍵 選擇 generate > getter and setter
+    12. 依次選取多行 alt 往下拉選 (有點類似utral edit 的區塊模式多筆輸入)
+    13. 載入多個專案：flie > new > moduel from exsiting source，選擇你要的spring boot 專案，點選pom檔
+    14. 
 
 
 
