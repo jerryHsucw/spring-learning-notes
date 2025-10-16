@@ -159,13 +159,28 @@ local 端 打包jar的設定
 -SNAPSHOT(不穩定版本):可以無限次上傳到remote倉庫 (jar的檔名會含有-SNAPSHOT)
 -RELEASE(穩定版本):只能上傳一次 且 不能覆蓋(jar的檔名不會有-SNAPSHOT)、改成<version>0.0.1</version>，這樣生成就是沒有snashot的jar檔
 
-10-8 Thymeleaf
+8-8 Thymeleaf
 springboot 的一種前端模板引擎
 spring-boot-starter-thymeleaf
 增加了一個thymeleaf demo
 
-
-
+8-9 Bean 注入的三種方式
+1.field injection 變數注入
+  優點:簡單好上手
+  缺點:容易注入過多的bean進來
+2.constructor injection 建構子注入
+  優點:容易釐清依賴關係、測試、變數可以為final
+  缺點:寫起來較為冗長(可用lombok簡化)
+3.setter injection setter 注入
+  chatgpt回復
+  優點：
+  可選依賴很方便（不需要注入時可不呼叫 setter 或將參數設為 optional）。
+  比 field injection 更容易被測試（可以在測試時呼叫 setter 注入 mock）。
+  適合需要在建構後才設定或可變的依賴（runtime 可修改）。
+  缺點：
+  不能強制在物件建立時提供依賴（無法保證依賴一定被設定），較不利於不變性（final 無法使用）。
+  可能導致物件在未完全初始化前就被使用（需要注意初始化順序）。
+  程式碼較多（多個 setter 會明顯增加樣板），且不如 constructor 注入在閱讀上能立刻看出必需的依賴。
 
 
 
