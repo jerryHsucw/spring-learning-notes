@@ -201,7 +201,20 @@ Ioc 控制反轉 優點:
     11. 滑鼠右鍵 選擇 generate > getter and setter
     12. 依次選取多行 alt 往下拉選 (有點類似utral edit 的區塊模式多筆輸入)
     13. 載入多個專案：flie > new > moduel from exsiting source，選擇你要的spring boot 專案，點選pom檔
-    14. 
+    14. 右上角齒輪，裡面有一個plugin，可以使用外掛程式
+
+9-4 lambok
+    1.確認plugin是否有lombok，沒有的話要安裝
+    2.prom.xml將dependency 加入
+            <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.34</version>
+            <scope>provided</scope>
+        </dependency>
+    
+
+
 
 
 
